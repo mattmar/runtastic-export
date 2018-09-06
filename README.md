@@ -1,7 +1,7 @@
 # Runstastic export
 This tool will help you to export your Runtastic activities in GPX format, so you can import them later in another apps, like Garmin.
 
-Original frontend script is based on (Download all activities from Runtastic)[https://gist.github.com/christianewald/0009d3ce1a372a11ae82].
+Original frontend script is based on [Download all activities from Runtastic](https://gist.github.com/christianewald/0009d3ce1a372a11ae82).
 
 Exporting all the activities is done in two steps:
 1. Make a list of all the activities to download.
@@ -10,18 +10,21 @@ Exporting all the activities is done in two steps:
 You need Python 3 to make it work.
 
 ## Get all the list of activities to export:
-1. Log in in (runtastic)[https://www.runtastic.com/]
+1. Log in in [runtastic](https://www.runtastic.com/)
 2. Open the Chrome developers tool: View -> Developer -> Developer Tools
 3. Go to the Runtastic activitis page, then open the Chrome console and paste the content of *export_activity_list.js*.
+![paste code](https://raw.githubusercontent.com/mauricio-trigueros/runtastic-export/master/images/1.png)
 4. Press enter, a file called *list.txt* will be downloaded. This file contains all the activities we will download later.
 
 ## Download all the activities:
 To download all the activities we will use the python script.
-1. Being logged in into runtastic, open a new tab and visit the website (check_export_quota)[https://www.runtastic.com/check_export_quota]. You need to be logged in, because we need to capture the cookie details.
+1. Being logged in into runtastic, open a new tab and visit the website [check_export_quota](https://www.runtastic.com/check_export_quota). You need to be logged in, because we need to capture the cookie details.
 2. Open the Chrome Developer tools (View -> Developer -> Developer Tools).
 3. Select *check_export_quota* request, copy, and copy as cUrl.
+![copy as curl](https://github.com/mauricio-trigueros/runtastic-export/blob/master/images/2.png?raw=true)
 4. Paste the content in between the double quotes of variable *quota_call* (line 16 in *download_activities.py*).
-5. Update also variables *DOWNLOADS* and *QUOTE_URL* with your paths. 
+5. Update also variables *DOWNLOADS* and *QUOTE_URL* with your paths.
+![update python script](https://github.com/mauricio-trigueros/runtastic-export/blob/master/images/3.png?raw=true)
 6. Run the python script, by calling 
 > python3 download_activities.py
 
